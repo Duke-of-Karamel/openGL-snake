@@ -13,7 +13,7 @@ OBJECTS := $(SOURCES:$(SOURCE_DIR)%.cpp=$(BUILD_DIR)%.o)
 
 TARGET := $(TARGET_DIR)$(NAME)
 
-#GL_INCLUDE = 
+#GL_INCLUDE = `pkg-config --cflags glew`
 
 
 .PHONY: all
