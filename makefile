@@ -24,7 +24,7 @@ $(TARGET): $(OBJECTS)
 
 $(BUILD_DIR)%.o: $(SOURCE_DIR)%.cpp $(HEADERS)
 	mkdir -p $(BUILD_DIR)
-	$(CXX) $(CXXFLAGS) $< -c -o $@
+	$(CXX) $< $(CXXFLAGS) -c -o $@
 
 
 
