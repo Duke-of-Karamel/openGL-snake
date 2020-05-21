@@ -1,6 +1,6 @@
 CXX = g++
 CXXFLAGS = -g -Wall -Wextra
-LDLIBS = -lGL -lGLEW
+LDLIBS := $(shell pkg-config --libs glew glfw3)
 
 SOURCE_DIR := ./src/
 BUILD_DIR  := ./build/
