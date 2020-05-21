@@ -8,3 +8,8 @@ apt install libglew-dev
  - dev umoznuje include
  - GLEW = GL Extension Wrangler
  - Multiplatformni zjednoduseni a zuniverzalovani funkci open GL
+
+ apt install libglfw3-dev
+  - dev umoznuje include
+  - GLFW = Graphics Library FrameWork
+  - multiplatformni sprava oken a sprava vstupnich zarizeni (klavevsnice, joystick)
