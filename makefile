@@ -20,7 +20,7 @@ TARGET := $(TARGET_DIR)$(NAME)
 all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
-	$(CXX) $(LDLIBS) $^ -o $@
+	$(CXX) $^ $(LDLIBS) -o $@
 
 $(BUILD_DIR)%.o: $(SOURCE_DIR)%.cpp $(HEADERS)
 	mkdir -p $(BUILD_DIR)
