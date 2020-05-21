@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 
-	GLFWwindow* window = glfwCreateWindow( 1024, 768, "Playground", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow( 1024, 768, "Snek is hungary as hec", NULL, NULL);
 	if(window == NULL){
         std::cerr << "Error: glfwCreateWindow()" <<std::endl;
 		glfwTerminate();
