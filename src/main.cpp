@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
 	GLuint v_bufferID;
 	glGenBuffers(1, &v_bufferID);
 	glBindBuffer(GL_ARRAY_BUFFER, v_bufferID);
-	glBufferData(GL_ARRAY_BUFFER, 3*3*sizeof(float), verticies3D, GL_STATIC_DRAW); // FIXME: awfully specific size
+	glBufferData(GL_ARRAY_BUFFER, sizeof(verticies3D), verticies3D, GL_STATIC_DRAW);
 
 	GLuint prgrmID;
 	prgrmID = bindShaders(readShader("src/shaders/vertexshader.glsl").c_str(),readShader("src/shaders/fragmentshader.glsl").c_str()); // FIXME: play with shaders
