@@ -4,12 +4,13 @@
 #include <iostream>
 
 /**
- * binds shaders to program and returns program
+ * Binds shaders to program and returns program
  * @return programID
  */
 GLuint bindShaders(const char* const vertexshader, const char* const fragmentshader);
 
 /**
- * load shader file to string
+ * Loads shader file to string
+ * Could actually be any file to string
  */
 std::string readShader(const char* file_path);
