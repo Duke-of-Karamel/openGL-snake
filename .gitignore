@@ -31,3 +31,7 @@
 *.out
 *.app
 snake
+
+# Rubble
+.vscode/
+build/
