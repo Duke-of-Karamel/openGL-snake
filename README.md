@@ -13,3 +13,9 @@ apt install libglew-dev
   - dev umoznuje include
   - GLFW = Graphics Library FrameWork
   - multiplatformni sprava oken a sprava vstupnich zarizeni (klavevsnice, joystick)
+
+## Programovani
+Prvni krok byl vytvoreni okna a renderovani trojuhelniku
+s jednoduchymy shadery, normalne bych mel pokracovat renderovanim
+3D objektu, ale snake je jen 2D, proto se v dalsim kroku spis zamerim
+na shadery a dynamicke body
