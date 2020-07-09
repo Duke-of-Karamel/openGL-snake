@@ -5,7 +5,8 @@
 
 #include "shaderloader.hpp"
 
-extern float verticies3D[9];
+extern float verticies_in[9];
+extern float colors_in[9];
 
 int main(int argc, char* argv[])
 {
@@ -44,10 +45,15 @@ int main(int argc, char* argv[])
 	glGenVertexArrays(1, &v_arrayID); // glCreateVertexArrays(1, &v_arrayID); //????
 	glBindVertexArray(v_arrayID);
 
-	GLuint v_bufferID;
-	glGenBuffers(1, &v_bufferID);
-	glBindBuffer(GL_ARRAY_BUFFER, v_bufferID);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(verticies3D), verticies3D, GL_STATIC_DRAW);
+	GLuint vertex_bufferID;
+	glGenBuffers(1, &vertex_bufferID);
+	glBindBuffer(GL_ARRAY_BUFFER, vertex_bufferID);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(verticies_in), verticies_in, GL_STATIC_DRAW);
+
+	GLuint color_bufferID;
+	glGenBuffers(1, &color_bufferID);
+	glBindBuffer(GL_ARRAY_BUFFER, color_bufferID);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(colors_in), colors_in, GL_STATIC_DRAW);
 
 	GLuint prgrmID;
 	prgrmID = bindShaders(readShader("src/shaders/vertexshader.glsl").c_str(),readShader("src/shaders/fragmentshader.glsl").c_str()); // FIXME: play with shaders
@@ -56,13 +62,19 @@ int main(int argc, char* argv[])
 		glClear(GL_COLOR_BUFFER_BIT);
 		glUseProgram(prgrmID);
 
-        //something
+        // bind verticies to Shader variable
 		glEnableVertexAttribArray(0);
-		glBindBuffer(GL_ARRAY_BUFFER, v_bufferID);
+		glBindBuffer(GL_ARRAY_BUFFER, vertex_bufferID);
 		glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,0,NULL);
+
+		// bind colors to Shader variable
+		glEnableVertexAttribArray(1);
+		glBindBuffer(GL_ARRAY_BUFFER, vertex_bufferID);
+		glVertexAttribPointer(1,3,GL_FLOAT,GL_FALSE,0,NULL);
 
 		glDrawArrays(GL_TRIANGLES, 0,3);
 		glDisableVertexAttribArray(0);
+		glDisableVertexAttribArray(1);
 		//something_end
 
 		glfwSwapBuffers(window);
